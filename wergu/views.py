@@ -18,7 +18,7 @@ def index():
 
 @wergu.route('/tweets', strict_slashes=False)
 def tweets():
-    #    
+    return "tweets"    
 
 if __name__ == "__main__":
     wergu.run(debug=True)
