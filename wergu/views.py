@@ -34,5 +34,9 @@ def pro_con():
 
     return render_template('procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
 
+@wergu.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == "__main__":
     wergu.run(debug=True)
