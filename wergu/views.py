@@ -18,7 +18,11 @@ def index():
 
 @wergu.route('/tweets', strict_slashes=False)
 def tweets():
-    return "tweets"    
+    tweet_list = []
+    public_tweets = api.home_timeline()
+    for tweet in public_tweets:
+        tweet_list.append(tweet.text)
+    return str(tweet_list)
 
 if __name__ == "__main__":
     wergu.run(debug=True)
