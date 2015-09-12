@@ -1,5 +1,5 @@
 <html>
-  <head>
+<head>
      <!-- Latest compiled and minified CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -9,27 +9,31 @@
      <!-- Latest compiled and minified JavaScript -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li{% if tab_highlight == 1 %} class="active" {% endif %}>
-            <a href="/">Home</a>
-          </li>
-          <li{% if tab_highlight == 2 %} class="active" {% endif %}>
-            <a href="/about">About Us</a>
-          </li>
-        </ul>
-      </div> <!-- End Header -->
+</head>
+<body>
+<div class="container">
+     <div class="header">
+          <ul class="nav nav-pills pull-right">
+               <li{% if tab_highlight == 1 %} class="active" {% endif %}>
+                    <a href="/">Home</a>
+               </li>
+               <li{% if tab_highlight == 2 %} class="active" {% endif %}>
+                    <a href="/about">About Us</a>
+               </li>
+          </ul>
+     </div>
+     <!-- End Header -->
 
-      {% block bodycontent %}
-      {% endblock %}
+     {% block bodycontent %}
+     {% endblock %}
 
-      <div class="footer">
-        <p>&copy; weRgu</p>
-        <p>Made at MHacks!</p>
-      </div> <!-- End Footer -->
-    </div> <!-- End Container -->
-  </body>
+     <div class="footer">
+          <p>&copy; weRgu</p>
+
+          <p>Made at MHacks!</p>
+     </div>
+     <!-- End Footer -->
+</div>
+<!-- End Container -->
+</body>
 </html>

@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
-
 wergu = Flask(__name__)
+
 
 @wergu.route('/')
 def index():
