@@ -35,5 +35,6 @@ def pro_con():
     return render_template('procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
 
 
-if __name__ == "__main__":
+def start_web_server():
     wergu.run(debug=True)
+

@@ -1,4 +1,6 @@
 from nltk.classify import NaiveBayesClassifier as NBC
+import cPickle as pickle
+import os
 
 
 def word_features(words):
@@ -31,11 +33,17 @@ def train_sad(positive_file, negative_file):
     return NBC.train(pos_tweets_list[:pos_cutoff] + neg_tweets_list[:neg_cutoff])
 
 
+def write_nbc_as_pickle(nbc, file_name= 'data/model.pkl'):
+    pickle.dumps(open(file_name, 'wb'), nbc)
+
+
+def get_nbc_from_pickle(file_name = 'data/model.pkl'):
+    return pickle.load(open(file_name, 'rb'))
+
+
 def main():
     clf = train_sad('data/pos_tweets.txt', 'data/neg_tweets.txt')
     clf.show_most_informative_features()
-
-    # clf.classify(tweet_we_want_to_classify)
 
 
 if __name__ == '__main__':
