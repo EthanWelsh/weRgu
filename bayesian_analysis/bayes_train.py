@@ -1,4 +1,4 @@
-import cPickle as pickle
+import pickle
 
 from nltk.classify import NaiveBayesClassifier as NBC
 
@@ -34,7 +34,7 @@ def train_sad(positive_file, negative_file):
 
 
 def write_nbc_as_pickle(nbc, file_name='data/model.pkl'):
-    pickle.dumps(nbc, open(file_name, 'wb'))
+    pickle.dumps(nbc, open(file_name, 'wb'), protocol=2)
 
 
 def get_nbc_from_pickle(file_name='data/model.pkl'):
