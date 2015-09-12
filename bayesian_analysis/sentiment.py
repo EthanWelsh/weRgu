@@ -14,7 +14,7 @@ def get_tweet_sentiment(sentence, nbc):
     """
 
     words = sentence.split(' ')
-    sentiments = [get_word_sentiment(word) for word in words]
+    sentiments = [get_word_sentiment(word, nbc) for word in words]
     return sum(sentiments) / float(len(words))
 
 

@@ -19,20 +19,8 @@ def tweets(subject):
 
 @wergu.route('/procon/<subject>')
 def pro_con(subject):
-    issue_title = subject
 
-    list_of_tweets = get_subject_tweets(subject)
-    con_tweets = []
-    pro_tweets = []
-
-    for tweet in list_of_tweets:
-        sentiment_value = bayesian_analysis.sentiment.get_tweet_sentiment(tweet)
-        if sentiment_value < -.3:
-            con_tweets.append(tweet)
-        elif sentiment_value > .3:
-            pro_tweets.append(tweet)
-
-    return render_template('procon.html', issue_title=issue_title, pro_list=pro_tweets, con_list=con_tweets)
+    return render_template('procon.html', issue_title="", pro_list=[], con_list=[])
 
 def start(naive_bayes_classifier):
     global nbc
