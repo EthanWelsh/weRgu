@@ -1,29 +1,36 @@
 import nltk.classify.util
 from nltk.classify import NaiveBayesClassifier as NBC
-from nltk.corpus import movie_reviews
+
 
 def word_features(words):
     return dict( [(word, True) for word in words] )
 
-negids = movie_reviews.fileids('neg')
-posids = movie_reviews.fileids('pos')
 
-tweet = "Watching @realDonaldTrump on @jimmyfallon!!!! Can't wait to say President Trump #Trump2016 #trumpnation @WeSupportTrump @Trump2016Fan"
+def train_sad(positive_file, negative_file):
+    """
+    :param positive_file: this file will contain all the positive sentiment tweets
+    :param negative_file: this file will contain all the negative sentiment tweets
+    :return: bayesian_classifier of class NaiveBayesClassifier clf
+    """
 
-neg_features = [ (word_features(movie_reviews.words(fileids=[f])), 'neg') for f in negids ]
-pos_features = [ (word_features(movie_reviews.words(fileids=[f])), 'pos') for f in posids ]
+    with open(positive_file, 'r') as pos_tweets:
+        pos_tweets_list = [(line, 'pos') for line in pos_tweets.readlines()]
 
-twe = word_features(tweet.split(' '))
+    with open(negative_file, 'r') as neg_tweets:
+        neg_tweets_list = [(line, 'neg') for line in neg_tweets.readlines()]
 
-neg_cutoff = int(len(neg_features) * 0.9)
-pos_cutoff = int(len(pos_features) * 0.9)
+    pos_cutoff = int(len(pos_tweets_list) * 0.9)
+    neg_cutoff = int(len(neg_tweets_list) * 0.9)
 
-train_features = neg_features[:neg_cutoff] + pos_features[:pos_cutoff]
-test_features = neg_features[neg_cutoff:] + pos_features[pos_cutoff:]
+    return NBC.train(pos_tweets_list[:pos_cutoff] + neg_tweets_list[:neg_cutoff])
 
-print "Training!"
 
-clf = NBC.train(train_features)
-print "Accuracy {0}".format( nltk.classify.util.accuracy(clf, test_features))
-clf.show_most_informative_features()
-print clf.classify(twe)
+def main():
+
+    clf = train_sad('data/pos_tweets.txt', 'data/neg_tweets.txt')
+    clf.show_most_informative_features()
+
+    # clf.classify(tweet_we_want_to_classify)
+
+if __name__ == 'main':
+    main()
