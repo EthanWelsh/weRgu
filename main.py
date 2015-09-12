@@ -3,6 +3,7 @@ import os
 from bayesian_analysis.training_data_retrieval import get_classified_tweet_files
 from bayesian_analysis.bayes_train import train_sad, write_nbc_as_pickle, get_nbc_from_pickle
 import app.webserver
+import app.webserver
 
 nbc = None
 
@@ -14,11 +15,14 @@ def main():
     nbc = get_nbc()
     print("Got NBC!")
     print("Starting web server...")
-    app.webserver.start()
+    app.webserver.start(nbc)
 
 
 def get_nbc():
     global nbc
+
+    if nbc is not None:
+        return nbc
 
     if not os.path.isfile('data/model.pkl'):
         print("No pickle found... Searching for training files...")
@@ -41,4 +45,6 @@ def get_nbc():
 
 
 if __name__ == '__main__':
-    main()
+    if nbc is None:
+        main()
+
