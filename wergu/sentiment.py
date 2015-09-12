@@ -21,4 +21,3 @@ def get_word_sentiment(word):
     :return: probability: The level of precision behind the bayesian forecast
     """
     pass
-

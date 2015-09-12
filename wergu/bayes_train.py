@@ -1,9 +1,8 @@
-import nltk.classify.util
 from nltk.classify import NaiveBayesClassifier as NBC
 
 
 def word_features(words):
-    return dict( [(word, True) for word in words] )
+    return dict([(word, True) for word in words])
 
 
 def train_sad(positive_file, negative_file):
@@ -26,11 +25,11 @@ def train_sad(positive_file, negative_file):
 
 
 def main():
-
     clf = train_sad('data/pos_tweets.txt', 'data/neg_tweets.txt')
     clf.show_most_informative_features()
 
     # clf.classify(tweet_we_want_to_classify)
+
 
 if __name__ == 'main':
     main()

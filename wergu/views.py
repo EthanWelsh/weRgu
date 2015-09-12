@@ -9,13 +9,14 @@ wergu = Flask(__name__)
 def index():
     return render_template('index.html')
 
+
 @wergu.route('/tweets/<subject>', strict_slashes=False)
 def tweets(subject):
     return str(get_subject_tweets(subject))
 
+
 @wergu.route('/procon')
 def pro_con():
-
     issue_title = "#Trump2016"
     pro_list = [
         "Watching @realDonaldTrump on @jimmyfallon!!!!  Can't wait to say President Trump #Trump2016 #trumpnation @WeSupportTrump @trump2016fan",
@@ -31,8 +32,8 @@ def pro_con():
         "I can't believe that people are taking #donaldtrump seriously. He's the worst sort of idiot: one with an ego. He'll get us all killed."
     ]
 
-
     return render_template('procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
+
 
 if __name__ == "__main__":
     wergu.run(debug=True)
