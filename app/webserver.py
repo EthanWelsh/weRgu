@@ -1,21 +1,23 @@
 from flask import Flask, render_template
 
-from twitter import get_subject_tweets
+from twitter.api import get_subject_tweets
+
 
 wergu = Flask(__name__)
 
 
 @wergu.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('app/templates/index.html')
+
 
 @wergu.route('/tweets/<subject>', strict_slashes=False)
 def tweets(subject):
     return str(get_subject_tweets(subject))
 
+
 @wergu.route('/procon')
 def pro_con():
-
     issue_title = "#Trump2016"
     pro_list = [
         "Watching @realDonaldTrump on @jimmyfallon!!!!  Can't wait to say President Trump #Trump2016 #trumpnation @WeSupportTrump @trump2016fan",
@@ -31,12 +33,8 @@ def pro_con():
         "I can't believe that people are taking #donaldtrump seriously. He's the worst sort of idiot: one with an ego. He'll get us all killed."
     ]
 
+    return render_template('app/templates/procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
 
-    return render_template('procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
 
-@wergu.route('/about')
-def about():
-    return render_template('about.html')
-
-if __name__ == "__main__":
+def start():
     wergu.run(debug=True)
