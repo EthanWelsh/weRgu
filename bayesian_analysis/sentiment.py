@@ -26,4 +26,8 @@ def get_word_sentiment(word, nbc):
     :return: sentiment: The sentiment grade that shows how positive or negative a word is.
     """
 
-    return nbc.classify({word:True})
+    result = nbc.classify({word:True})
+    if result == 'pos':
+        return 1
+    else:
+        return 0
