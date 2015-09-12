@@ -106,3 +106,4 @@ crashlytics.properties
 crashlytics-build.properties
 
 wergu/secrets.py
+data/
