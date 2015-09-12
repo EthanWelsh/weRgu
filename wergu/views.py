@@ -11,7 +11,6 @@ api = tweepy.API(auth)
 
 wergu = Flask(__name__)
 
-
 @wergu.route('/')
 def index():
     return render_template('index.html')
@@ -19,8 +18,8 @@ def index():
 @wergu.route('/tweets', strict_slashes=False)
 def tweets():
     tweet_list = []
-    public_tweets = api.home_timeline()
-    for tweet in public_tweets:
+    results = api.search(q="Obama")
+    for tweet in results:
         tweet_list.append(tweet.text)
     return str(tweet_list)
 
