@@ -11,7 +11,11 @@ def index():
 
 @wergu.route('/tweets/<subject>', strict_slashes=False)
 def tweets(subject):
-    return get_subject_tweets(subject)
+    return str(get_subject_tweets(subject))
+
+@wergu.route('/procon')
+def pro_con():
+    return render_template('procon.html')
 
 if __name__ == "__main__":
     wergu.run(debug=True)

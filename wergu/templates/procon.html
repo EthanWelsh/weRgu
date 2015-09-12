@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<head>
+     <!-- Speech Bubbles -->
+     <link rel= "stylesheet" type= "text/css" href= "{{url_for('static',filename='styles/bubbles.css')}}">
+
+</head>
+
+<br>
+<br>
+<br>
+<div class="row" style="padding-left: 5%; padding-right: 5%; padding-bottom: 5ch; align-items: center">
+
+     <div class="progress" style="align-content: center">
+          <div class="progress-bar progress-bar-success" style="width: 50%">
+               <span class="sr-only"></span>
+          </div>
+          <div class="progress-bar progress-bar-danger" style="width: 50%">
+               <span class="sr-only"></span>
+          </div>
+     </div>
+
+     <div class="container">
+          <div class="row">
+               <div class="col-xs-6" style="background-color:darkseagreen">
+                    <h2 align="left" style="color: #BFD7A3;">Pro</h2>
+                    <ul class="list-group">
+                         <li class="list-group-item">I am cool</li>
+                         <li class="list-group-item">We is cool</li>
+                         <li class="list-group-item">We are all kool</li>
+                         <li class="list-group-item">We koolest</li>
+                    </ul>
+               </div>
+               <div class="col-xs-6" style="background-color:red">
+                    <h2 align="right" style="color: #FF765F">Con</h2>
+                    <ul class="list-group">
+                         <li class="list-group-item">I are lame</li>
+                         <li class="list-group-item">You are lamest</li>
+                         <li class="list-group-item">You are lamesfffft</li>
+                         <li class="list-group-item">You are lamesfffft</li>
+                    </ul>
+               </div>
+          </div>
+     </div>
+</div>
+<br>
+<br>
+
+<p class="triangle-isosceles left">Takes me longer to write up blog posts on experiments or projects than to create them in the first place.</p>
+
+<p class="triangle-isosceles right">The entire appearance is created only with CSS.</p>
+
+{% endblock %}
