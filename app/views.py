@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-from twitter import get_subject_tweets
+from main.twitter import get_subject_tweets
 
 wergu = Flask(__name__)
 
