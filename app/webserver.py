@@ -8,7 +8,7 @@ wergu = Flask(__name__)
 
 @wergu.route('/')
 def index():
-    return render_template('app/templates/index.html')
+    return render_template('index.html')
 
 
 @wergu.route('/tweets/<subject>', strict_slashes=False)
@@ -33,7 +33,7 @@ def pro_con():
         "I can't believe that people are taking #donaldtrump seriously. He's the worst sort of idiot: one with an ego. He'll get us all killed."
     ]
 
-    return render_template('app/templates/procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
+    return render_template('procon.html', issue_title=issue_title, pro_list=pro_list, con_list=con_list)
 
 
 def start():
