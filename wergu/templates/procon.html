@@ -11,22 +11,17 @@
 <br>
 <br>
 
-<h1>{{ issue_title }}</h1>
+<h1 align="center" style="color: #0084B4;">{{ issue_title }}</h1>
 
-<div class="container" align-items: center">
-
-     <div class="progress" style="align-content: center">
-          <div class="progress-bar progress-bar-success" style="width: 50%">
-               <span class="sr-only"></span>
-          </div>
-          <div class="progress-bar progress-bar-danger" style="width: 50%">
-               <span class="sr-only"></span>
-          </div>
+<!--<div class="container">-->
+     <div class="progress" align="center">
+          <div class="progress-bar progress-bar-success" style="width: 50%"></div>
+          <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
      </div>
 
-     <div class="container">
+     <div>
           <div class="row">
-               <div class="col-md-6" style="background-color:darkseagreen">
+               <div class="col-md-6" style="background-color:#5CB85C">
                     <h2 align="left" style="color: #BFD7A3;">Pro</h2>
                     <ul class="list-group">
                          {% for tweet in pro_list %}
@@ -34,7 +29,7 @@
                          {% endfor %}
                     </ul>
                </div>
-               <div class="col-md-6" style="background-color:red">
+               <div class="col-md-6" style="background-color:#CF3E3A">
                     <h2 align="right" style="color: #FF765F">Con</h2>
                     <ul class="list-group">
                          {% for tweet in con_list %}
@@ -44,7 +39,7 @@
                </div>
           </div>
      </div>
-</div>
+<!--</div>-->
 <br>
 <br>
 
