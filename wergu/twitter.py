@@ -10,7 +10,7 @@ api = tweepy.API(auth)
 
 def get_subject_tweets(subject):
     tweet_list = []
-    results = api.search(q="Obama")
+    results = api.search(subject)
     for tweet in results:
         tweet_list.append(tweet.text)
     return str(tweet_list)
