@@ -16,10 +16,10 @@
      <div class="header">
           <ul class="nav nav-pills pull-right">
                <li{% if tab_highlight == 1 %} class="active" {% endif %}>
-                    <a href="/">Home</a>
+                    <a style="color:#f79f18" href="/">Home</a>
                </li>
-               <li{% if tab_highlight == 2 %} class="active" {% endif %}>
-                    <a href="/about">About Us</a>
+               <li {% if tab_highlight == 2 %} class="active" {% endif %}>
+                    <a style="color:#f79f18" href="/about">About Us</a>
                </li>
           </ul>
      </div>
@@ -28,10 +28,8 @@
      {% block bodycontent %}
      {% endblock %}
 
-     <div class="footer">
-          <p>&copy; weRgu</p>
-
-          <p>Made at MHacks!</p>
+     <div class="footer" style="position:fixed; padding:5px; bottom:0px; left:0px; font-size:9;">
+          <p>Made at MHacks! &copy; weRgu</p>
      </div>
      <!-- End Footer -->
 </div>
