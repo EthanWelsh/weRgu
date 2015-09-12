@@ -12,11 +12,18 @@ def train_sad(positive_file, negative_file):
     :return: bayesian_classifier of class NaiveBayesClassifier clf
     """
 
+    pos_tweets_list = []
+    neg_tweets_list = []
+
     with open(positive_file, 'r') as pos_tweets:
-        pos_tweets_list = [(line, 'pos') for line in pos_tweets.readlines()]
+        for line in pos_tweets.readlines():
+            word_dict = {word: True for word in line.split()}
+            pos_tweets_list.append((word_dict, 'pos'))
 
     with open(negative_file, 'r') as neg_tweets:
-        neg_tweets_list = [(line, 'neg') for line in neg_tweets.readlines()]
+        for line in neg_tweets.readlines():
+            word_dict = {word: True for word in line.split()}
+            neg_tweets_list.append((word_dict, 'neg'))
 
     pos_cutoff = int(len(pos_tweets_list) * 0.9)
     neg_cutoff = int(len(neg_tweets_list) * 0.9)
@@ -31,5 +38,5 @@ def main():
     # clf.classify(tweet_we_want_to_classify)
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     main()
