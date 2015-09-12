@@ -1,4 +1,3 @@
 Flask
 tweepy
 nltk
-wget
