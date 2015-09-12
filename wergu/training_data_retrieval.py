@@ -1,29 +1,30 @@
 import re
 import zipfile
 
-import wget
+import urllib
 import os
 
 
 def get_sad_tweets_file():
     url = 'http://thinknook.com/wp-content/uploads/2012/09/Sentiment-Analysis-Dataset.zip'
-    wget.download(url)
 
-    with open('Sentiment-Analysis-Dataset.zip', 'rb') as fh:
+    urllib.urlretrieve (url, 'data/Sentiment-Analysis-Dataset.zip')
+
+    with open('data/Sentiment-Analysis-Dataset.zip', 'rb') as fh:
         z = zipfile.ZipFile(fh)
         for name in z.namelist():
-            z.extract(name, '.')
+            z.extract(name, 'data')
 
 
 def get_classified_tweet_files():
 
     # If we don't already have the Sentiment Analysis Dataset.csv file, download it.
-    if not os.path.isfile('Sentiment Analysis Dataset.csv'):
+    if not os.path.isfile('data/Sentiment Analysis Dataset.csv'):
         get_sad_tweets_file()
 
     tweets = []
 
-    with open("Sentiment Analysis Dataset.csv", "r") as f:
+    with open("data/Sentiment Analysis Dataset.csv", "r") as f:
         next(f)
         for line in f:
             tweets.append(line.strip().split(','))

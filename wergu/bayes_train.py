@@ -34,7 +34,7 @@ def train_sad(positive_file, negative_file):
 
 
 def write_nbc_as_pickle(nbc, file_name= 'data/model.pkl'):
-    pickle.dumps(open(file_name, 'wb'), nbc)
+    pickle.dumps(nbc, open(file_name, 'wb'))
 
 
 def get_nbc_from_pickle(file_name = 'data/model.pkl'):
