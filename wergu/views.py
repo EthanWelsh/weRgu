@@ -16,7 +16,7 @@ def tweets(subject):
 @wergu.route('/procon')
 def pro_con():
 
-    issue_title = "BlackLivesMater"
+    issue_title = "#Trump2016"
     pro_list = [
         "Watching @realDonaldTrump on @jimmyfallon!!!!  Can't wait to say President Trump #Trump2016 #trumpnation @WeSupportTrump @trump2016fan",
         "Mr @realDonaldTrump just wanted you to know you have a huge following in Canada...They want you to win in #Trump2016 @DanScavino #TeamTrump",
