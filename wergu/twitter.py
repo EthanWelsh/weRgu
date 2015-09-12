@@ -13,4 +13,4 @@ def get_subject_tweets(subject):
     results = api.search(subject)
     for tweet in results:
         tweet_list.append(tweet.text)
-    return str(tweet_list)
+    return tweet_list
