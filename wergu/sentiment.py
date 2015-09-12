@@ -7,7 +7,9 @@ def get_sentence_sentiment(sentence):
     :return: probability: The level of precision behind the bayesian forecast
     """
 
-    pass
+    words = sentence.split(' ')
+    sentiments = [get_word_sentiment(word) for word in words]
+    return sum(sentiments[0]) / float(len(words)), sum(sentiments[1]) / float(len(words))
 
 
 def get_word_sentiment(word):
