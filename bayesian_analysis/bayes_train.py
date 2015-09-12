@@ -1,4 +1,4 @@
-import pickle
+import cPickle as pickle
 
 from nltk.classify import NaiveBayesClassifier as NBC
 
@@ -34,15 +34,19 @@ def train_sad(positive_file, negative_file):
 
 
 def write_nbc_as_pickle(nbc, file_name='data/model.pkl'):
-    pickle.dumps(nbc, open(file_name, 'wb'), protocol=2)
+    pickle.dump(nbc, open(file_name, 'wb'), -1)
 
 
 def get_nbc_from_pickle(file_name='data/model.pkl'):
     return pickle.load(open(file_name, 'rb'))
 
 
+def get_sad():
+    return train_sad('data/pos_tweets.txt', 'data/neg_tweets.txt')
+
+
 def main():
-    clf = train_sad('data/pos_tweets.txt', 'data/neg_tweets.txt')
+    clf = get_sad()
     clf.show_most_informative_features()
 
 
