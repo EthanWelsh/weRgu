@@ -1,2 +1,3 @@
-# weArgu
-Sentiment analysis driven debate website. Built in MHacks!
+#
+weArgu
+Sentiment analysis driven debate website. Built at MHacks VI!
