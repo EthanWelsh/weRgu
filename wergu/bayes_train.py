@@ -1,6 +1,6 @@
-from nltk.classify import NaiveBayesClassifier as NBC
 import cPickle as pickle
-import os
+
+from nltk.classify import NaiveBayesClassifier as NBC
 
 
 def word_features(words):
@@ -33,11 +33,11 @@ def train_sad(positive_file, negative_file):
     return NBC.train(pos_tweets_list[:pos_cutoff] + neg_tweets_list[:neg_cutoff])
 
 
-def write_nbc_as_pickle(nbc, file_name= 'data/model.pkl'):
+def write_nbc_as_pickle(nbc, file_name='data/model.pkl'):
     pickle.dumps(nbc, open(file_name, 'wb'))
 
 
-def get_nbc_from_pickle(file_name = 'data/model.pkl'):
+def get_nbc_from_pickle(file_name='data/model.pkl'):
     return pickle.load(open(file_name, 'rb'))
 
 
