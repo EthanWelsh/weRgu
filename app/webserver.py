@@ -16,7 +16,6 @@ def index():
 
 @wergu.route('/about')
 def about():
-    print("I HERE")
     return render_template('about.html')
 
 
