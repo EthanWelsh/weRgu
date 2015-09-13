@@ -5,7 +5,6 @@
           <!-- Speech Bubbles -->
           <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/bubbles.css') }}">
           <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-          <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
      </head>
 
      <br>
@@ -58,11 +57,11 @@
                                    </fieldset>
 
                                    <div style="margin:0;" class="pure-g">
-                                        <button type="submit"
+                                        <button id="pro-button" type="submit"
                                                 style="background-color: #BFD7A3; font-family: 'Poiret One', cursive;"
                                                 class="pure-button pure-input-2-6 pure-button-primary">Pro
                                         </button>
-                                        <button type="submit"
+                                        <button id="con-button" type="submit"
                                                 style="background-color: #FF765F; font-family: 'Poiret One', cursive;"
                                                 class="pure-button pure-input-2-6 pure-button-primary">Con
                                         </button>
@@ -71,30 +70,37 @@
 
                               <script>
                                    var myDataRef = new Firebase('https://wergu.firebaseio.com/');
-                                   $('#messageInput').keypress(function (e)
-                                   {
-                                        if (e.keyCode == 13)
-                                        {
-                                             var name = $('#nameInput').val();
-                                             var text = $('#messageInput').val();
-                                             myDataRef.push({name: name, text: text});
-                                             $('#messageInput').val('');
-                                        }
+
+                                   function sendMessage(direction) {
+                                     var name = $('#nameInput').val();
+                                     var text = $('#messageInput').val();
+                                     myDataRef.push({name: name, text: text, direction: direction});
+                                     $('#messageInput').val('');
+                                   }
+
+                                   $("#pro-button").click(sendMessage.bind(null, 'pro'));
+                                   $("#con-button").click(function () {
+                                     sendMessage('con');
                                    });
 
                                    myDataRef.on('child_added', function (snapshot)
                                    {
                                         var message = snapshot.val();
-                                        displayChatMessage(message.name, message.text);
+                                        displayChatMessage(message.name, message.text, message.direction);
                                    });
 
-                                   function displayChatMessage(name, text)
+                                   function displayChatMessage(name, text, direction)
                                    {
-                                        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
+                                        var div = $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
+                                        div.addClass(direction);
                                         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
                                    }
                                    ;
                               </script>
+                             <style>
+                                 .con {color: red;}
+                                 .pro {color: green;}
+                             </style>
                          </div>
                     </div>
 
