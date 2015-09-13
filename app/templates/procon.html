@@ -19,9 +19,9 @@
      <div class="progress" align="center">
 
           <div class="progress-bar progress-bar-success"
-               style="width: {{ (pro_list|length /(con_list|length + pro_list|length))*100.00 }}%"></div>
+               style="width: {{ (pro_list|length /(con_list|length + pro_list|length))*100.00 }}%">{{ (pro_list|length /(con_list|length + pro_list|length))*100.00 }}%</div>
           <div class="progress-bar progress-bar-danger"
-               style="width: {{ (con_list|length /(con_list|length + pro_list|length))*100.00 }}%"></div>
+               style="width: {{ (con_list|length /(con_list|length + pro_list|length))*100.00 }}%">{{ (con_list|length /(con_list|length + pro_list|length))*100.00 }}%</div>
      </div>
 
      <div>
