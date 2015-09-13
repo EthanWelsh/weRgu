@@ -49,3 +49,34 @@ div.banner p{
     font-size:22;
     color:9CD7B4;
 }
+
+.circle
+{
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    font-size:50px;
+    color:#fff;
+    line-height:500px;
+    text-align:center;
+    background:#CF3E3A;
+   /* border: solid #6A6C69 5px;*/
+
+    -webkit-filter: blur(15px);
+    filter: blur(15px);
+}
+
+.innertext{
+    font-size:36;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+
+.col-lg-6{
+    margin:0 auto;
+    top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
