@@ -38,7 +38,7 @@ def pro_con(subject):
 
     print pro
 
-    return render_template('procon.html', issue_title="", pro_list=pro, con_list=neg)
+    return render_template('procon.html', issue_title=subject, pro_list=pro, con_list=neg)
 
 def start(naive_bayes_classifier):
     global nbc

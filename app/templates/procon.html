@@ -10,13 +10,16 @@
 
      <br>
      <br>
-     <br>
+
 
      <h1 align="center" style="color: #0084B4;">{{ issue_title }}</h1>
 
+     <br>
+
      <div class="progress" align="center">
-          <div class="progress-bar progress-bar-success" style="width: 50%"></div>
-          <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+
+          <div class="progress-bar progress-bar-success" style="width: {{ (pro_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
+          <div class="progress-bar progress-bar-danger" style="width: {{ (con_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
      </div>
 
      <div>
@@ -39,6 +42,7 @@
                </div>
           </div>
      </div>
+
     <div class="container">
     <div class = "messages">
           <div id='messagesDiv1'></div>
