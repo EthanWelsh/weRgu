@@ -1,3 +1,11 @@
+h1{
+    font-family:Georgia;
+}
+
+p{
+    font-family:Georgia;
+}
+
 body{
     background-color:#333;
     color:white;
@@ -21,13 +29,14 @@ div.transbox{
 
 div.transbox p{
     margin: 2%;
+    font-size:18;
 }
 
 .banner{
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
-    font-size: 24px;
+    font-size: 30;
     text-align: left;
     background-color:297A4A;
     position:absolute;
@@ -37,6 +46,6 @@ div.transbox p{
 
 div.banner p{
     margin 2%;
-    font-size:18;
+    font-size:22;
     color:9CD7B4;
 }
