@@ -19,9 +19,9 @@
      <div class="progress" align="center">
 
           <div class="progress-bar progress-bar-success"
-               style="width: {{ (pro_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
+               style="width: {{ (pro_list|length /(con_list|length + pro_list|length))*100.00 }}%"></div>
           <div class="progress-bar progress-bar-danger"
-               style="width: {{ (con_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
+               style="width: {{ (con_list|length /(con_list|length + pro_list|length))*100.00 }}%"></div>
      </div>
 
      <div>
@@ -45,92 +45,57 @@
           </div>
      </div>
 
-     <!--
-    <div class="container">
-    <div class = "messages">
-          <div id='messagesDiv1'></div>
-          <input type='text' id='nameInput1' placeholder='Name'>
-          <input type='text' id='messageInput1' placeholder='Message'>
-          <script>
-            var myDataRef = new Firebase('https://wergu.firebaseio.com/');
-            $('#messageInput1').keypress(function (e) {
-              if (e.keyCode == 13) {
-                var name = $('#nameInput1').val();
-                var text = $('#messageInput1').val();
-                myDataRef.push({name: name, text: text});
-                $('#messageInput1').val('');
-              }
-            });
-            myDataRef.on('child_added', function(snapshot) {
-              var message = snapshot.val();
-            displayChatMessage(message.name, message.text);
-            });
-            function displayChatMessage(name, text) {
-              $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv1'));
-              $('#messagesDiv1')[0].scrollTop = $('#messagesDiv1')[0].scrollHeight;
-            };
-          </script>
-      </div>
-    </div>
 
-    <div="container">
-      <div class = "messages">
-            <div id='messagesDiv2'></div>
-            <input type='text' id='nameInput2' placeholder='Name'>
-            <input type='text' id='messageInput2' placeholder='Message'>
-            <script>
-              var myDataRef = new Firebase('https://shining-fire-5754.firebaseio.com/');
-              $('#messageInput2').keypress(function (e) {
-                if (e.keyCode == 13) {
-                  var name = $('#nameInput2').val();
-                  var text = $('#messageInput2').val();
-                  myDataRef.push({name: name, text: text});
-                  $('#messageInput2').val('');
-                }
-              });
-              myDataRef.on('child_added', function(snapshot) {
-                var message = snapshot.val();
-              displayChatMessage(message.name, message.text);
-              });
-              function displayChatMessage(name, text) {
-                $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv2'));
-                $('#messagesDiv2')[0].scrollTop = $('#messagesDiv2')[0].scrollHeight;
-              };
-            </script>
+     <div class="container">
+          <div class="messages">
+               <div id='messagesDiv'></div>
+               <form class="pure-form" style="color: black;">
+                    <fieldset class="pure-group">
+                         <input id="nameInput" type="text" class="pure-input-1-2" placeholder="Name">
+                         <textarea id="messageInput" class="pure-input-1-2" placeholder="Comment"></textarea>
+                    </fieldset>
+
+                    <div class="pure-g">
+                         <button type="submit" style="background-color: #BFD7A3"
+                                 class="pure-button pure-input-1-4 pure-button-primary">Pro
+                         </button>
+                         <button type="submit" style="background-color: #FF765F"
+                                 class="pure-button pure-input-1-4 pure-button-primary">Con
+                         </button>
+                    </div>
+               </form>
+
+               <script>
+                    var myDataRef = new Firebase('https://wergu.firebaseio.com/');
+                    $('#messageInput').keypress(function (e)
+                    {
+                         if (e.keyCode == 13)
+                         {
+                              var name = $('#nameInput').val();
+                              var text = $('#messageInput').val();
+                              myDataRef.push({name: name, text: text});
+                              $('#messageInput').val('');
+                         }
+                    });
+
+                    myDataRef.on('child_added', function (snapshot)
+                    {
+                         var message = snapshot.val();
+                         displayChatMessage(message.name, message.text);
+                    });
+
+                    function displayChatMessage(name, text)
+                    {
+                         $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
+                         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+                    }
+                    ;
+               </script>
           </div>
-        </div>
-        --->
+     </div>
+
      <br>
      <br>
 
-     <form class="pure-form" style="color: black;">
-          <div class="row">
-               <div class="col-md-3" style="background-color:#5CB85C">
-                    <ul class="list-group">
-                         <li class="list-group-item"><p class="triangle-isosceles left">YO</p></li>
-                    </ul>
-               </div>
-               <div class="col-md-3" style="background-color:#CF3E3A">
-                    <ul class="list-group">
-                         <li class="list-group-item"><p class="triangle-isosceles right">YO</p></li>
-                    </ul>
-               </div>
-
-          </div>
-
-          <fieldset class="pure-group">
-               <input type="text" class="pure-input-1-2" placeholder="Name">
-               <textarea class="pure-input-1-2" placeholder="Comment"></textarea>
-          </fieldset>
-
-          <div class="pure-g">
-               <button type="submit" style="background-color: #BFD7A3" ;
-                       class="pure-button pure-input-1-4 pure-button-primary">Pro
-               </button>
-               <button type="submit" style="background: #FF765F" ;
-                       class="pure-button pure-input-1-4 pure-button-primary">Con
-               </button>
-          </div>
-     </form>
 
 {% endblock %}
