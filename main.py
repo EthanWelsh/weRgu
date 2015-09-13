@@ -16,7 +16,7 @@ def main():
     print("Got NBC!")
     print("Starting web server...")
     ws.nbc = nbc
-    app.webserver.start(nbc)
+    app.webserver.start()
 
 
 def get_nbc():
