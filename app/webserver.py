@@ -13,6 +13,10 @@ nbc = None
 def index():
     return render_template('index.html')
 
+@wergu.route('/about')
+def about():
+    print("I HERE")
+    return render_template('about.html')
 
 @wergu.route('/tweets/<subject>', strict_slashes=False)
 def tweets(subject):
