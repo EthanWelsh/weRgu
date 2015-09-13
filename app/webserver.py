@@ -39,8 +39,5 @@ def pro_con(subject):
     return render_template('procon.html', issue_title=subject, pro_list=pro, con_list=neg)
 
 
-def start(naive_bayes_classifier):
-    global nbc
-
+def start():
     wergu.run()
-    nbc = naive_bayes_classifier
