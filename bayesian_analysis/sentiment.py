@@ -5,6 +5,7 @@ def get_subject(subject, nbc):
     :return: negative: a list of tweets that embody a negative sentiment towards the given subject area.
     """
 
+
 def get_tweet_sentiment(sentence, nbc):
     """Given a string, will split that string into several words, analyze them using naive base, and then output the
     probability from -1.0 to 1.0 that the string in question in negative/positive in mood and nature.
@@ -26,7 +27,7 @@ def get_word_sentiment(word, nbc):
     :return: sentiment: The sentiment grade that shows how positive or negative a word is.
     """
 
-    result = nbc.classify({word:True})
+    result = nbc.classify({word: True})
     if result == 'pos':
         return 1
     else:

@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 {% block bodycontent %}
 
-    <link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='styles/format.css') }} ">
-    <div class="bigdaddy">
-        <br>
-        <br>
-        <br>
-        <div class="circle" style="margin-left:auto; margin-right:auto;"></div>
-        <div class="innertext" align="center">weRgu</div>
-    </div>
-    <!--<div class="circle" style="margin-left:auto; margin-right:auto;">weRgu</div>-->
-    <br>
-    <br>
-    <p class="lead" style="text-align:center">Discuss and debate the most controversial topics of today!</p>
+     <link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='styles/format.css') }} ">
+     <div class="bigdaddy">
+          <br>
+          <br>
+          <br>
 
-<br>
+          <div class="circle" style="margin-left:auto; margin-right:auto;"></div>
+          <div class="innertext" align="center">weRgu</div>
+     </div>
+     <!--<div class="circle" style="margin-left:auto; margin-right:auto;">weRgu</div>-->
+     <br>
+     <br>
+     <p class="lead" style="text-align:center">Discuss and debate the most controversial topics of today!</p>
 
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="What do YOU want to Rgu about?">
+     <br>
+
+     <div class="col-lg-6">
+          <div class="input-group">
+               <input type="text" class="form-control" placeholder="What do YOU want to Rgu about?">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button"> > </button>
+        <button class="btn btn-default" type="button"> ></button>
       </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+          </div>
+          <!-- /input-group -->
+     </div><!-- /.col-lg-6 -->
+     </div><!-- /.row -->
 
 {% endblock %}

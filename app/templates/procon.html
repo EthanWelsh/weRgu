@@ -18,8 +18,10 @@
 
      <div class="progress" align="center">
 
-          <div class="progress-bar progress-bar-success" style="width: {{ (pro_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
-          <div class="progress-bar progress-bar-danger" style="width: {{ (con_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
+          <div class="progress-bar progress-bar-success"
+               style="width: {{ (pro_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
+          <div class="progress-bar progress-bar-danger"
+               style="width: {{ (con_list|length*1.0 /(1.0*con_list|length + 1.0*pro_list|length))*100.00 }}%"></div>
      </div>
 
      <div>
@@ -102,24 +104,19 @@
      <br>
 
      <form class="pure-form" style="color: black;">
-
           <div class="row">
                <div class="col-md-3" style="background-color:#5CB85C">
                     <ul class="list-group">
-                              <li class="list-group-item"><p class="triangle-isosceles left">YO</p></li>
+                         <li class="list-group-item"><p class="triangle-isosceles left">YO</p></li>
                     </ul>
                </div>
                <div class="col-md-3" style="background-color:#CF3E3A">
                     <ul class="list-group">
-                              <li class="list-group-item"><p class="triangle-isosceles right">YO</p></li>
+                         <li class="list-group-item"><p class="triangle-isosceles right">YO</p></li>
                     </ul>
                </div>
 
           </div>
-
-
-
-
 
           <fieldset class="pure-group">
                <input type="text" class="pure-input-1-2" placeholder="Name">
@@ -127,12 +124,13 @@
           </fieldset>
 
           <div class="pure-g">
-               <button type="submit" style="background-color: #BFD7A3"; class="pure-button pure-input-1-4 pure-button-primary">Pro</button>
-               <button type="submit" style="background: #FF765F"; class="pure-button pure-input-1-4 pure-button-primary">Con</button>
+               <button type="submit" style="background-color: #BFD7A3" ;
+                       class="pure-button pure-input-1-4 pure-button-primary">Pro
+               </button>
+               <button type="submit" style="background: #FF765F" ;
+                       class="pure-button pure-input-1-4 pure-button-primary">Con
+               </button>
           </div>
      </form>
-
-     <br>
-     <br>
 
 {% endblock %}

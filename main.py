@@ -48,4 +48,3 @@ def get_nbc():
 if __name__ == '__main__':
     if nbc is None:
         main()
-
