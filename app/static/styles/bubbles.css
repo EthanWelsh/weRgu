@@ -41,14 +41,14 @@ Dual licensed under MIT and GNU GPLv2 Nicolas Gallagher
 ------------------------------------------ */
 .triangle-isosceles.left {
     margin-left: 50px;
-    background: #00ffbf;
+    background: #BFD7A3;
 }
 
 /* Variant : for right positioned triangle
 ------------------------------------------ */
 .triangle-isosceles.right {
     margin-right: 50px;
-    background: #f38889;
+    background: #FF765F;
 }
 
 /* THE TRIANGLE
@@ -62,7 +62,7 @@ Dual licensed under MIT and GNU GPLv2 Nicolas Gallagher
     left: 50px; /* controls horizontal position */
     border-width: 15px 15px 0; /* vary these values to change the angle of the vertex */
     border-style: solid;
-    border-color: #f3961c transparent;
+    border-color: #BFD7A3 transparent;
     /* reduce the damage in FF3.0 */
     display: block;
     width: 0;
@@ -75,7 +75,7 @@ Dual licensed under MIT and GNU GPLv2 Nicolas Gallagher
     left: -50px; /* value = - border-left-width - border-right-width */
     bottom: auto;
     border-width: 10px 50px 10px 0;
-    border-color: transparent #00ffbf;
+    border-color: transparent #BFD7A3;
 }
 
 /* Variant : right
@@ -86,5 +86,5 @@ Dual licensed under MIT and GNU GPLv2 Nicolas Gallagher
     bottom: auto;
     left: auto;
     border-width: 10px 0 10px 50px;
-    border-color: transparent #f38889;
+    border-color: transparent #FF765F;
 }
