@@ -19,14 +19,19 @@
      <div class="progress" align="center">
 
           <div class="progress-bar progress-bar-success"
-               style="width: {{ (pro_list|length /(con_list|length + pro_list|length))*100.00 }}%"></div>
+               style="width: {{ (pro_list|length /(con_list|length + pro_list|length))*100.0 }}%">
+               {{ 100.0*(pro_list|length/(con_list|length + pro_list|length)) | round(1) }}%
+          </div>
           <div class="progress-bar progress-bar-danger"
-               style="width: {{ (con_list|length /(con_list|length + pro_list|length))*100.00 }}%"></div>
+               style="width: {{ (con_list|length /(con_list|length + pro_list|length))*100.0 }}%">
+               {{ 100.0*(con_list|length /(con_list|length + pro_list|length)) | round(1) }}%
+          </div>
      </div>
 
      <div>
           <div class="row">
-               <div class="col-md-6" style="background-color:#5CB85C">
+
+               <div class="col-md-4" style="background-color:#5CB85C">
                     <h2 align="left" style="color: #BFD7A3;">Pro</h2>
                     <ul class="list-group">
                          {% for tweet in pro_list %}
@@ -34,7 +39,70 @@
                          {% endfor %}
                     </ul>
                </div>
-               <div class="col-md-6" style="background-color:#CF3E3A">
+
+               <div class="col-md-4">
+
+                    <div id='messagesDiv' style="font-family: 'Poiret One', cursive; padding-left: 18px"></div>
+                    <div class="container" align="center">
+                         <div class="messages">
+
+                              <form class="pure-form" style="color: black;">
+                                   <fieldset align="center" class="pure-group">
+                                        <input id="nameInput" type="text" class="pure-input-1-4" placeholder="Name"
+                                               style="font-family: 'Poiret One', cursive;">
+                                        <textarea id="messageInput" type="text" class="pure-input-1-4"
+                                                  placeholder="Comment"
+                                                  style="font-family: 'Poiret One', cursive;"></textarea>
+                                   </fieldset>
+
+                                   <div style="margin:0;" class="pure-g">
+                                        <button type="submit"
+                                                style="background-color: #BFD7A3; font-family: 'Poiret One', cursive;"
+                                                class="pure-button pure-input-2-6 pure-button-primary">Pro
+                                        </button>
+                                        <button type="submit"
+                                                style="background-color: #FF765F; font-family: 'Poiret One', cursive;"
+                                                class="pure-button pure-input-2-6 pure-button-primary">Con
+                                        </button>
+                                   </div>
+                              </form>
+
+                              <script>
+                                   var myDataRef = new Firebase('https://wergu.firebaseio.com/');
+                                   $('#messageInput').keypress(function (e)
+                                   {
+                                        if (e.keyCode == 13)
+                                        {
+                                             var name = $('#nameInput').val();
+                                             var text = $('#messageInput').val();
+                                             myDataRef.push({name: name, text: text});
+                                             $('#messageInput').val('');
+                                        }
+                                   });
+
+                                   myDataRef.on('child_added', function (snapshot)
+                                   {
+                                        var message = snapshot.val();
+                                        displayChatMessage(message.name, message.text);
+                                   });
+
+                                   function displayChatMessage(name, text)
+                                   {
+                                        $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
+                                        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+                                   }
+                                   ;
+                              </script>
+                         </div>
+                    </div>
+
+                    <br>
+                    <br>
+
+
+               </div>
+
+               <div class="col-md-4" style="background-color:#CF3E3A">
                     <h2 align="right" style="color: #FF765F">Con</h2>
                     <ul class="list-group">
                          {% for tweet in con_list %}
@@ -45,58 +113,6 @@
           </div>
      </div>
 
-
-     <div class="container">
-          <div class="messages">
-
-               <div id='messagesDiv' style="font-family: 'Poiret One', cursive;"></div>
-
-               <form class="pure-form" style="color: black;">
-                    <fieldset class="pure-group">
-                         <input id="nameInput" type="text" class="pure-input-1-2" placeholder="Name" style="font-family: 'Poiret One', cursive;">
-                         <textarea id="messageInput" type="text" class="pure-input-1-2" placeholder="Comment" style="font-family: 'Poiret One', cursive;"></textarea>
-                    </fieldset>
-
-                    <div class="pure-g">
-                         <button type="submit" style="background-color: #BFD7A3; font-family: 'Poiret One', cursive;"
-                                 class="pure-button pure-input-1-4 pure-button-primary">Pro
-                         </button>
-                         <button type="submit" style="background-color: #FF765F; font-family: 'Poiret One', cursive;"
-                                 class="pure-button pure-input-1-4 pure-button-primary">Con
-                         </button>
-                    </div>
-               </form>
-
-               <script>
-                    var myDataRef = new Firebase('https://wergu.firebaseio.com/');
-                    $('#messageInput').keypress(function (e)
-                    {
-                         if (e.keyCode == 13)
-                         {
-                              var name = $('#nameInput').val();
-                              var text = $('#messageInput').val();
-                              myDataRef.push({name: name, text: text});
-                              $('#messageInput').val('');
-                         }
-                    });
-
-                    myDataRef.on('child_added', function (snapshot)
-                    {
-                         var message = snapshot.val();
-                         displayChatMessage(message.name, message.text);
-                    });
-
-                    function displayChatMessage(name, text)
-                    {
-                         $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));
-                         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-                    };
-               </script>
-          </div>
-     </div>
-
-     <br>
-     <br>
 
 
 {% endblock %}
