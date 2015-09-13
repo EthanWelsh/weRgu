@@ -35,21 +35,23 @@ div.transbox p {
 }
 
 .banner {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 20px;
     padding-left: 20px;
     font-size: 30;
     text-align: left;
-    background-color: 297 A4A;
+    background-color: #297A4A;
     position: absolute;
     left: 0;
     right: 0;
+
+    box-shadow: 0px 0px 20px 5px #297A4A;
 }
 
 div.banner p {
     margin 2%;
     font-size: 22;
-    color: 9 CD7B4;
+    color: #9CD7B4;
 }
 
 .circle {
@@ -81,3 +83,4 @@ div.banner p {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
