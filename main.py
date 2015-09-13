@@ -3,7 +3,7 @@ import os
 from bayesian_analysis.training_data_retrieval import get_classified_tweet_files
 from bayesian_analysis.bayes_train import train_sad, write_nbc_as_pickle, get_nbc_from_pickle
 import app.webserver
-import app.webserver
+import app.webserver as ws
 
 nbc = None
 
@@ -15,6 +15,7 @@ def main():
     nbc = get_nbc()
     print("Got NBC!")
     print("Starting web server...")
+    ws.nbc = nbc
     app.webserver.start(nbc)
 
 
