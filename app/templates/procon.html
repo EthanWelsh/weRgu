@@ -39,28 +39,60 @@
                </div>
           </div>
      </div>
-    <div id='messagesDiv'></div>
-    <input type='text' id='nameInput' placeholder='Name'>
-    <input type='text' id='messageInput' placeholder='Message'>
-    <script>
-      var myDataRef = new Firebase('https://wergu.firebaseio.com/');
-      $('#messageInput').keypress(function (e) {
-        if (e.keyCode == 13) {
-          var name = $('#nameInput').val();
-          var text = $('#messageInput').val();
-          myDataRef.push({name: name, text: text});
-          $('#messageInput').val('');
-        }
-      });
-      myDataRef.on('child_added', function(snapshot) {
-        var message = snapshot.val();
-      displayChatMessage(message.name, message.text);
-      });
-      function displayChatMessage(name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
-    </script>
+    <div class="container">
+    <div class = "messages">
+          <div id='messagesDiv1'></div>
+          <input type='text' id='nameInput1' placeholder='Name'>
+          <input type='text' id='messageInput1' placeholder='Message'>
+          <script>
+            var myDataRef = new Firebase('https://wergu.firebaseio.com/');
+            $('#messageInput1').keypress(function (e) {
+              if (e.keyCode == 13) {
+                var name = $('#nameInput1').val();
+                var text = $('#messageInput1').val();
+                myDataRef.push({name: name, text: text});
+                $('#messageInput1').val('');
+              }
+            });
+            myDataRef.on('child_added', function(snapshot) {
+              var message = snapshot.val();
+            displayChatMessage(message.name, message.text);
+            });
+            function displayChatMessage(name, text) {
+              $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv1'));
+              $('#messagesDiv1')[0].scrollTop = $('#messagesDiv1')[0].scrollHeight;
+            };
+          </script>
+      </div>
+    </div>
+
+    <div="container">
+      <div class = "messages">
+            <div id='messagesDiv2'></div>
+            <input type='text' id='nameInput2' placeholder='Name'>
+            <input type='text' id='messageInput2' placeholder='Message'>
+            <script>
+              var myDataRef = new Firebase('https://shining-fire-5754.firebaseio.com/');
+              $('#messageInput2').keypress(function (e) {
+                if (e.keyCode == 13) {
+                  var name = $('#nameInput2').val();
+                  var text = $('#messageInput2').val();
+                  myDataRef.push({name: name, text: text});
+                  $('#messageInput2').val('');
+                }
+              });
+              myDataRef.on('child_added', function(snapshot) {
+                var message = snapshot.val();
+              displayChatMessage(message.name, message.text);
+              });
+              function displayChatMessage(name, text) {
+                $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv2'));
+                $('#messagesDiv2')[0].scrollTop = $('#messagesDiv2')[0].scrollHeight;
+              };
+            </script>
+          </div>
+        </div>
+
      <br>
      <br>
 
